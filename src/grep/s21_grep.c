@@ -1,4 +1,5 @@
-#include "s21_grep.h"
+// "Copyright 2022 <Copyright Owner>"
+#include "./s21_grep.h"
 
 void parser(int argc, char **argv, struct Code_s *flags) {
     int i = 0;
@@ -46,7 +47,7 @@ int main(int argc, char **argv) {
     flags.c = false;
     parser(argc, argv, &flags);
     getFile(flags, optind, argv, argc);
-    return (0);        
+    return (0);
 }
 
 int getFile(Flags flags, int optind, char **argv, int argc) {
@@ -60,24 +61,26 @@ int getFile(Flags flags, int optind, char **argv, int argc) {
     countNums.file_name = optind + flags.e + 1;
     countNums.file_counter =  argc - optind - 1;
 
-    while (countNums.file_name < argc){
-        strcat(template, argv[optind]);
+    while (countNums.file_name < argc) {
+        snprintf(template, sizeof(argv[optind]), argv[optind]);
         FILE *file = fopen(argv[countNums.file_name], "r");
-        if (file == NULL)
-            printf("grep: %s: No such file or directory\n", argv[countNums.file_name]);
-        else {
-            while ((read = getline(&line, &len, file)) != -1 && !countNums.stop_search) {
+        if (file == NULL) {
+            printf("grep: %s: No such file or directory\n",
+            argv[countNums.file_name]);
+        } else {
+            while ((read = getline(&line, &len, file)) != -1 &&
+            !countNums.stop_search) {
                 countNums.line_counter += 1;
                 search(&flags, template, line, argv, &countNums);
             }
-            if (flags.c){
+            if (flags.c) {
                 if (countNums.file_counter > 1)
                     printf("%s:", argv[countNums.file_name]);
                 printf("%d\n", countNums.success_counter);
             }
             countNums.stop_search = false;
             countNums.line_counter = 0;
-            memset(template,'\0',1024);
+            memset(template, '\0', 1024);
             countNums.success_counter = 0;
         }
         countNums.file_name++;
@@ -87,7 +90,8 @@ int getFile(Flags flags, int optind, char **argv, int argc) {
     return EXIT_SUCCESS;
 }
 
-void search(Flags *flags, char *template, char *line, char **argv, struct Counters_s *countNums) {
+void search(Flags *flags, char *template, char *line, char **argv, \
+struct Counters_s *countNums) {
     int regflag = 0;
     regmatch_t pmatch[1];
     int success = 0;
@@ -99,13 +103,12 @@ void search(Flags *flags, char *template, char *line, char **argv, struct Counte
     regcomp(&regex, template, regflag);
     success = regexec(&regex, line, 1, pmatch, 0);
 
-    if ((success == 0 && !flags->v) || (success == REG_NOMATCH && flags->v)){
+    if ((success == 0 && !flags->v) || (success == REG_NOMATCH && flags->v)) {
         countNums->success_counter += 1;
         if (flags->l) {
             printf("%s\n", argv[countNums->file_name]);
             countNums->stop_search = true;
-            }
-        else if (!flags->c && !flags->l){
+            } else if (!flags->c && !flags->l) {
             if (countNums->file_counter > 1) {
                 printf("%s:", argv[countNums->file_name]);
             }
@@ -113,7 +116,7 @@ void search(Flags *flags, char *template, char *line, char **argv, struct Counte
                 printf("%d:", countNums->line_counter);
             printf("%s", line);
 
-            while (line[k] != '\0' && line[k] != '\n'){
+            while (line[k] != '\0' && line[k] != '\n') {
                 k++;
                 if (line[k] == '\0')
                     printf("\n");

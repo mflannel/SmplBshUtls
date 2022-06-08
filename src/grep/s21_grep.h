@@ -1,5 +1,6 @@
-#ifndef S21_GREP_H_
-#define S21_GREP_H_
+// "Copyright 2022 <Copyright Owner>"
+#ifndef SRC_GREP_S21_GREP_H_
+#define SRC_GREP_S21_GREP_H_
 #define BUFFSIZE 1024
 
 #include <stdio.h>
@@ -20,7 +21,7 @@ struct Code_s {
     bool n;
 };
 
-struct Counters_s{
+struct Counters_s {
     int line_counter;
     int file_counter;
     int success_counter;
@@ -30,7 +31,8 @@ struct Counters_s{
 
 void parser(int argc, char **argv, struct Code_s *flags);
 int getFile(Flags flags, int optind, char **argv, int argc);
-void search(Flags *flags, char *template, char *line, char **argv, struct Counters_s *counters);
+void search(Flags *flags, char *template, char *line, \
+char **argv, struct Counters_s *counters);
 void initCounters(struct Counters_s *counters);
 
-#endif //S21_GREP_H_
+#endif  //  SRC_GREP_S21_GREP_H_

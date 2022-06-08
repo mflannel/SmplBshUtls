@@ -1,4 +1,5 @@
-#include "s21_grep_test.h"
+// "Copyright 2022 <Copyright Owner>"
+#include "./s21_grep_test.h"
 
 int main(void) {
     start_tests();
@@ -6,17 +7,19 @@ int main(void) {
 }
 
 void start_tests() {
-    
     // FILE *fd1 = fopen("grep/test/tmp_test_file.txt", "w");
-    
         char command1[512] = {'\0'};
         char command2[512] = {'\0'};
-        strcat(command1, "grep ");
-        strcat(command2, "./s21_grep ");
-        strcat(command1, "-e hello");
-        strcat(command2, "-e hello");
-        strcat(command1, " grep/test/tmp_test_file.txt > grep/test/tmp1");
-        strcat(command2, " grep/test/tmp_test_file.txt > grep/test/tmp2");
+        snprintf(command1, strlen("grep "), "grep ");
+        snprintf(command2, strlen("./s21_grep "), "./s21_grep ");
+        snprintf(command1, strlen("-e hello"), "-e hello");
+        snprintf(command2, strlen("-e hello"), "-e hello");
+        snprintf(command1, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp1"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp1");
+        snprintf(command2, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp2"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
         system(command1);
@@ -29,12 +32,16 @@ void start_tests() {
 
         memset(command1, '\0', 512);
         memset(command2, '\0', 512);
-        strcat(command1, "grep ");
-        strcat(command2, "./s21_grep ");
-        strcat(command1, "-i hello");
-        strcat(command2, "-i hello");
-        strcat(command1, " grep/test/tmp_test_file.txt > grep/test/tmp1");
-        strcat(command2, " grep/test/tmp_test_file.txt > grep/test/tmp2");
+        snprintf(command1, strlen("grep "), "grep ");
+        snprintf(command2, strlen("./s21_grep "), "./s21_grep ");
+        snprintf(command1, strlen("-i hello"), "-i hello");
+        snprintf(command2, strlen("-i hello"), "-i hello");
+        snprintf(command1, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp1"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp1");
+        snprintf(command2, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp2"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
         system(command1);
@@ -47,12 +54,16 @@ void start_tests() {
 
         memset(command1, '\0', 512);
         memset(command2, '\0', 512);
-        strcat(command1, "grep ");
-        strcat(command2, "./s21_grep ");
-        strcat(command1, "-v hello");
-        strcat(command2, "-v hello");
-        strcat(command1, " grep/test/tmp_test_file.txt > grep/test/tmp1");
-        strcat(command2, " grep/test/tmp_test_file.txt > grep/test/tmp2");
+        snprintf(command1, strlen("grep "), "grep ");
+        snprintf(command2, strlen("./s21_grep "), "./s21_grep ");
+        snprintf(command1, strlen("-v hello"), "-v hello");
+        snprintf(command2, strlen("-v hello"), "-v hello");
+        snprintf(command1, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp1"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp1");
+        snprintf(command2, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp2"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
         system(command1);
@@ -65,12 +76,16 @@ void start_tests() {
 
         memset(command1, '\0', 512);
         memset(command2, '\0', 512);
-        strcat(command1, "grep ");
-        strcat(command2, "./s21_grep ");
-        strcat(command1, "-c hello");
-        strcat(command2, "-c hello");
-        strcat(command1, " grep/test/tmp_test_file.txt > grep/test/tmp1");
-        strcat(command2, " grep/test/tmp_test_file.txt > grep/test/tmp2");
+        snprintf(command1, strlen("grep "), "grep ");
+        snprintf(command2, strlen("./s21_grep "), "./s21_grep ");
+        snprintf(command1, strlen("-c hello"), "-c hello");
+        snprintf(command2, strlen("-c hello"), "-c hello");
+        snprintf(command1, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp1"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp1");
+        snprintf(command2, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp2"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
         system(command1);
@@ -83,12 +98,16 @@ void start_tests() {
 
         memset(command1, '\0', 512);
         memset(command2, '\0', 512);
-        strcat(command1, "grep ");
-        strcat(command2, "./s21_grep ");
-        strcat(command1, "-l hello");
-        strcat(command2, "-l hello");
-        strcat(command1, " grep/test/tmp_test_file.txt > grep/test/tmp1");
-        strcat(command2, " grep/test/tmp_test_file.txt > grep/test/tmp2");
+        snprintf(command1, strlen("grep "), "grep ");
+        snprintf(command2, strlen("./s21_grep "), "./s21_grep ");
+        snprintf(command1, strlen("-l hello"), "-l hello");
+        snprintf(command2, strlen("-l hello"), "-l hello");
+        snprintf(command1, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp1"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp1");
+        snprintf(command2, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp2"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
         system(command1);
@@ -101,12 +120,16 @@ void start_tests() {
 
         memset(command1, '\0', 512);
         memset(command2, '\0', 512);
-        strcat(command1, "grep ");
-        strcat(command2, "./s21_grep ");
-        strcat(command1, "-n hello");
-        strcat(command2, "-n hello");
-        strcat(command1, " grep/test/tmp_test_file.txt > grep/test/tmp1");
-        strcat(command2, " grep/test/tmp_test_file.txt > grep/test/tmp2");
+        snprintf(command1, strlen("grep "), "grep ");
+        snprintf(command2, strlen("./s21_grep "), "./s21_grep ");
+        snprintf(command1, strlen("-n hello"), "-n hello");
+        snprintf(command2, strlen("-n hello"), "-n hello");
+        snprintf(command1, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp1"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp1");
+        snprintf(command2, \
+        strlen(" grep/test/tmp_test_file.txt > grep/test/tmp2"), \
+        " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
         system(command1);
