@@ -1,3 +1,4 @@
+// "Copyright 2022 <Copyright Owner>"
 #ifndef SRC_GREP_TEST_S21_GREP_TEST_H_
 #define SRC_GREP_TEST_S21_GREP_TEST_H_
 #include <stdio.h>
@@ -13,6 +14,7 @@ void file_gen(void);
 int compare(void);
 
 static const char *const s21_mac_flags[6] = {
-    [0] = " -e ", [1] = " -i ", [2] = " -v ", [3] = " -c ", [4] = " -l ", [5] = " -n "};
+    [0] = " -e ", [1] = " -i ", [2] = " -v ", \
+    [3] = " -c ", [4] = " -l ", [5] = " -n "};
 
 #endif  // SRC_GREP_TEST_S21_GREP_TEST_H_
