@@ -16,8 +16,10 @@ int main(int argc, char *argv[]) {
 
     if (caseFlags->b)
         caseFlags->n = false;
-    if (caseFlags->v)
-        caseFlags->e = false, caseFlags->t = false;
+    if (caseFlags->v) {
+        //caseFlags->e = false;
+        //caseFlags->t = false;
+    }
     for (; optind < argc; optind++)
         res = scan(argv, caseFlags);
     return res;
@@ -54,6 +56,9 @@ int parseFlags(CatFlags *caseFlags, int argc, char *argv[]) {
         caseFlags->s = pos == 's' ? true : caseFlags->s;
         caseFlags->t = pos == 't' ? true : caseFlags->t;
         caseFlags->v = pos == 'v' ? true : caseFlags->v;
+        if (pos != 'b' && pos != 'e' && pos != 'n' && pos != 's' && pos != 't' && pos != 'v') {
+            fprintf(2, "I TUT TY OKONCHATEL'NO POTERYAL KONTROL' NAD SITUATSYEY...");
+        }
         pos == '?' ? res = -1 : 1;
     }
     return (res);

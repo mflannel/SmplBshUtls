@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="78e83215-7c46-470b-976c-293181e1a47b" name="s21_cat1" defaultType="MAKE">
+      <configuration id="31f2056a-472a-4ce7-a54a-bed74e3d5b1c" name="s21_cat1" toolchainName="Default">
+        <build type="MAKE">
+          <make targetName="make" />
+        </build>
+      </configuration>
+    </target>
+  </component>
+</project>
