@@ -39,7 +39,7 @@ int scan(char *argv[], CatFlags *caseFlags) {
     int res = 0;
 
     if ((file=fopen(argv[optind], "r")) == NULL) {
-        printf("Cannot open file.\n");
+        //fprintf(stderr, RED);
         res = -1;
     } else {
         s21_cat(caseFlags, file);
@@ -56,9 +56,6 @@ int parseFlags(CatFlags *caseFlags, int argc, char *argv[]) {
         caseFlags->s = pos == 's' ? true : caseFlags->s;
         caseFlags->t = pos == 't' ? true : caseFlags->t;
         caseFlags->v = pos == 'v' ? true : caseFlags->v;
-        if (pos != 'b' && pos != 'e' && pos != 'n' && pos != 's' && pos != 't' && pos != 'v') {
-            fprintf(2, "I TUT TY OKONCHATEL'NO POTERYAL KONTROL' NAD SITUATSYEY...");
-        }
         pos == '?' ? res = -1 : 1;
     }
     return (res);

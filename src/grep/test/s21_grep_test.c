@@ -22,8 +22,8 @@ void start_tests() {
         " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
-        system(command1);
-        system(command2);
+        system("./s21_grep -e hello grep/test/tmp_test_file.txt > grep/test/tmp1");
+        system("grep -e hello grep/test/tmp_test_file.txt > grep/test/tmp2");
         if (system("diff grep/test/tmp1 grep/test/tmp2")) {
             printf("%sFAIL%s\n", RED, RESET);
         } else {
@@ -44,8 +44,8 @@ void start_tests() {
         " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
-        system(command1);
-        system(command2);
+        system("./s21_grep -i hello grep/test/tmp_test_file.txt > grep/test/tmp1");
+        system("grep -i hello grep/test/tmp_test_file.txt > grep/test/tmp2");
         if (system("diff grep/test/tmp1 grep/test/tmp2")) {
             printf("%sFAIL%s\n", RED, RESET);
         } else {
@@ -66,8 +66,8 @@ void start_tests() {
         " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
-        system(command1);
-        system(command2);
+        system("./s21_grep -v hello grep/test/tmp_test_file.txt > grep/test/tmp1");
+        system("grep -v hello grep/test/tmp_test_file.txt > grep/test/tmp2");
         if (system("diff grep/test/tmp1 grep/test/tmp2")) {
             printf("%sFAIL%s\n", RED, RESET);
         } else {
@@ -88,8 +88,8 @@ void start_tests() {
         " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
-        system(command1);
-        system(command2);
+        system("./s21_grep -c hello grep/test/tmp_test_file.txt > grep/test/tmp1");
+        system("grep -c hello grep/test/tmp_test_file.txt > grep/test/tmp2");
         if (system("diff grep/test/tmp1 grep/test/tmp2")) {
             printf("%sFAIL%s\n", RED, RESET);
         } else {
@@ -110,8 +110,8 @@ void start_tests() {
         " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
-        system(command1);
-        system(command2);
+        system("./s21_grep -l hello grep/test/tmp_test_file.txt > grep/test/tmp1");
+        system("grep -l hello grep/test/tmp_test_file.txt > grep/test/tmp2");
         if (system("diff grep/test/tmp1 grep/test/tmp2")) {
             printf("%sFAIL%s\n", RED, RESET);
         } else {
@@ -132,8 +132,8 @@ void start_tests() {
         " grep/test/tmp_test_file.txt > grep/test/tmp2");
         printf("%s\n", command1);
         printf("%s\n", command2);
-        system(command1);
-        system(command2);
+        system("./s21_grep -n hello grep/test/tmp_test_file.txt > grep/test/tmp1");
+        system("grep -n hello grep/test/tmp_test_file.txt > grep/test/tmp2");
         if (system("diff grep/test/tmp1 grep/test/tmp2")) {
             printf("%sFAIL%s\n", RED, RESET);
         } else {
